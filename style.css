@@ -1,7 +1,15 @@
-body {
-    margin: 0px;
+body { 
+    margin: 0; 
+    padding: 0; 
+    overflow: hidden; 
 }
-
+.my-container {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    overflow: visible;
+}
 #main-canvas {
     background-color: black;
 }
