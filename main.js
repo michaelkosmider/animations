@@ -39,7 +39,7 @@ window.onload = function() {
                 effect.setRadius(value)
             }
             else if(parameter === "mouse-effect") {
-                effect.setCellSize(value)
+                effect.setMouseEffect(value)
             }
             effect.animate()
         })
@@ -57,7 +57,7 @@ window.onload = function() {
 
     // playing the default effect
     loadEffect("Spirals")
-    
+
     function loadEffect(effectName) {
         effect = effects.get(effectName)
         parameters.get("cell-size").value = effect.getCellSize()
