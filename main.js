@@ -69,11 +69,18 @@ window.onload = function() {
         effect.animate()
     }
 }
-
+// mouse and touch handlers
 window.addEventListener("mousemove", function(event) {
+    console.log("mousemove happened")
     mouseX = event.pageX
     mouseY = event.pageY
 })
+window.addEventListener("touchstart", touchHandler)
+window.addEventListener("touchmove", touchHandler)
+function touchHandler(event) {
+    mouseX = event.touches[0].pageX
+    mouseY = event.touches[0].pageY
+}
 
 window.onresize = function() {
     canvas.width=window.innerWidth

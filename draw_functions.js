@@ -53,3 +53,4 @@ function drawSpirals(ctx, width, height, cellSize, angle, radius, mouseEffect) {
     }
     ctx.stroke()
 }
+
