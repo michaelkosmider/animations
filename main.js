@@ -17,8 +17,8 @@ window.onload = function() {
     // loading the effects
     effects = new Map()    
     effects.set("Dots", new Effect(ctx, canvas.width, canvas.height, 30, 10, 1, 1, drawDots))
-    effects.set("Lines", new Effect(ctx, canvas.width, canvas.height, 30, 100, 1, 1, drawLines))
-    effects.set("Spirals", new Effect(ctx, canvas.width, canvas.height, 30, 50, 1, 1, drawSpirals))
+    effects.set("Lines", new Effect(ctx, canvas.width, canvas.height, 30, 100, 1, 5, drawLines))
+    effects.set("Spirals", new Effect(ctx, canvas.width, canvas.height, 30, 50, 1, 5, drawSpirals))
     effects.set("Circles", new Effect(ctx, canvas.width, canvas.height, 30, 40, 1, 1, drawCircles))
 
     // parameter buttons
@@ -47,6 +47,7 @@ window.onload = function() {
     }
 
     // animation buttons
+    let animationDropDown = document.querySelector("#animations .btn")
     let animations = document.querySelectorAll("#animations .dropdown-item")
     for(i = 0; i < animations.length; i ++) {
         animations[i].addEventListener("click", function(event) {
@@ -59,6 +60,7 @@ window.onload = function() {
     loadEffect("Spirals")
 
     function loadEffect(effectName) {
+        animationDropDown.innerText = effectName
         effect = effects.get(effectName)
         parameters.get("cell-size").value = effect.getCellSize()
         parameters.get("speed").value = effect.getSpeed()

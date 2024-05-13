@@ -10,6 +10,7 @@ class Effect {
     #draw
     #speed
     #mouseEffect
+    #animationTime
 
     constructor(ctx, width, height, cellSize, radius, speed, mouseEffect, draw){
         this.id
@@ -20,6 +21,7 @@ class Effect {
         this.#interval = 1000/120
         this.#timer = 0
         this.#lastTime = 0
+        this.#animationTime = 0
         this.#cellSize = cellSize
         this.#radius = radius
         this.#speed = speed
@@ -40,13 +42,14 @@ class Effect {
     }
     
     #animateFrame(timeStamp) {
-        console.log("animating")
+        //console.log("animating")
         let deltaTime = timeStamp - this.#lastTime
         this.#lastTime = timeStamp
         this.#timer += deltaTime
+        this.#animationTime += deltaTime * this.#speed / 1000
         if(this.#timer > this.#interval) {
             this.#ctx.clearRect(0, 0, this.#width, this.#height)
-            this.#draw(this.#ctx,this.#width,this.#height,this.#cellSize,timeStamp*this.#speed/1000,this.#radius)
+            this.#draw(this.#ctx,this.#width,this.#height,this.#cellSize,this.#animationTime,this.#radius, this.#mouseEffect)
             this.#timer -= this.#interval
         }
         this.id=requestAnimationFrame(this.#animateFrame.bind(this))

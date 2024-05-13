@@ -1,9 +1,9 @@
-function drawDots(ctx, width, height, cellSize, angle, radius) {
+function drawDots(ctx, width, height, cellSize, angle, radius, mouseEffect) {
     ctx.beginPath()
     for(let i = 0; i < width; i+= cellSize) {
         for(let j = 0; j < height; j += cellSize) {
             let dist = Math.sqrt((i-mouseX) ** 2 + (j-mouseY) ** 2)
-            let scale = 50/(50 + dist)
+            let scale = 50*mouseEffect/(50*mouseEffect + dist)
             let xComp = i + (i-mouseX) * scale + Math.sin(i/3000*angle)*5
             let yComp = j + (j-mouseY) * scale + Math.cos(j/3000*angle)*5
             ctx.moveTo(xComp+radius, yComp)
@@ -13,12 +13,12 @@ function drawDots(ctx, width, height, cellSize, angle, radius) {
     ctx.fill()
 }
 
-function drawCircles(ctx, width, height, cellSize, angle, radius) {
+function drawCircles(ctx, width, height, cellSize, angle, radius, mouseEffect) {
     ctx.beginPath()
     for(let i = 0; i < width; i+= cellSize) {
         for(let j = 0; j < height; j += cellSize) {
             let dist = Math.sqrt((i-mouseX) ** 2 + (j-mouseY) ** 2)
-            let scale = 50/(50 + dist)
+            let scale = 50*mouseEffect/(50*mouseEffect + dist)
             let xComp = i + (i-mouseX) * scale + Math.sin(i/3000*angle)*5
             let yComp = j + (j-mouseY) * scale + Math.cos(j/3000*angle)*5
             ctx.moveTo(xComp+radius, yComp)
@@ -28,12 +28,12 @@ function drawCircles(ctx, width, height, cellSize, angle, radius) {
     ctx.stroke()
 }
 
-function drawLines(ctx, width, height, cellSize, angle, radius) {
+function drawLines(ctx, width, height, cellSize, angle, radius, mouseEffect) {
     angle = Math.sin(angle/5)*50
     ctx.beginPath()
     for(let i = 0; i < width; i+= cellSize) {
         for(let j = 0; j < height; j += cellSize) {
-            let dist = Math.sqrt((i-mouseX) ** 2 + (j-mouseY) ** 2)
+            let dist = (mouseEffect)/5*Math.sqrt((i-mouseX) ** 2 + (j-mouseY) ** 2) + (5-mouseEffect)/5*Math.sqrt((i-width/2) ** 2 + (j-height/2) ** 2)
             ctx.moveTo(i, j)
             ctx.lineTo(i+radius*Math.cos(dist*i/3000000*angle),j+radius*Math.sin(dist*j/2000000*angle))
         }
@@ -41,12 +41,12 @@ function drawLines(ctx, width, height, cellSize, angle, radius) {
     ctx.stroke()
 }
 
-function drawSpirals(ctx, width, height, cellSize, angle, radius) {
+function drawSpirals(ctx, width, height, cellSize, angle, radius, mouseEffect) {
     angle = Math.sin(angle/5)*50
     ctx.beginPath()
     for(let i = 0; i < width; i+= cellSize) {
         for(let j = 0; j < height; j += cellSize) {
-            let dist = Math.sqrt((i-mouseX) ** 2 + (j-mouseY) ** 2)
+            let dist = (mouseEffect)/5*Math.sqrt((i-mouseX) ** 2 + (j-mouseY) ** 2) + (5-mouseEffect)/5*Math.sqrt((i-width/2) ** 2 + (j-height/2) ** 2)
             ctx.moveTo(i, j)
             ctx.lineTo(i+radius*Math.cos(dist/3000*(angle+50)),j+radius*Math.sin(dist/3000*(angle+50)))
         }

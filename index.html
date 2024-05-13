@@ -10,26 +10,26 @@
 <body>
     <canvas id="main-canvas"></canvas>
     <div class="my-container">
-        <div class="dropdown" id="animations">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Animations
+        <div class="dropdown my-item" id="animations">
+            <button class="btn w-100 btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                
             </button>
-            <ul class="dropdown-menu my-item">
+            <ul class="dropdown-menu">
                 <li><a class="dropdown-item">Spirals</a></li>
                 <li><a class="dropdown-item">Lines</a></li>
                 <li><a class="dropdown-item">Circles</a></li>
                 <li><a class="dropdown-item">Dots</a></li>
             </ul>
         </div>
-        <div class="dropdown" id="parameters">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="dropdown my-item" id="parameters">
+            <button class="btn w-100 btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Parameters
             </button>
-            <ul class="dropdown-menu my-item">
-                <li>Cell Size<input data-parameter="cell-size" type="range" value="30" class="form-range" min="10" max="50" step="1" id="customRange3"></li>
-                <li>Speed<input data-parameter="speed" type="range" value="1" class="form-range" min="0" max="3" step="0.1" id="customRange3"></li>
-                <li>Radius<input data-parameter="radius" type="range" value="1" class="form-range" min="10" max="100" step="1" id="customRange3"></li>
-                <li>Mouse Effect (coming soon!)<input data-parameter="mouse-effect" type="range" value="1" class="form-range" min="0" max="5" step="0.5" id="customRange3"></li>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item">Cell Size<input data-parameter="cell-size" type="range" value="30" class="form-range" min="10" max="50" step="1" id="customRange3"></li>
+                <li class="dropdown-item">Speed<input data-parameter="speed" type="range" value="1" class="form-range" min="0" max="3" step="0.1" id="customRange3"></li>
+                <li class="dropdown-item">Radius<input data-parameter="radius" type="range" value="1" class="form-range" min="10" max="100" step="1" id="customRange3"></li>
+                <li class="dropdown-item">Mouse Effect<input data-parameter="mouse-effect" type="range" value="1" class="form-range" min="0" max="5" step="0.1" id="customRange3"></li>
             </ul>
         </div>
     </div>

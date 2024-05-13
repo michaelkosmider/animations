@@ -3,14 +3,37 @@ body {
     padding: 0; 
     overflow: hidden; 
 }
+
+#main-canvas {
+    background-color: black;
+}
+
 .my-container {
     display: flex;
     position: absolute;
     left: 10px;
     top: 10px;
+    gap: 2px;
     overflow: visible;
 }
-#main-canvas {
-    background-color: black;
+
+.my-item {
+    width: 126px;
+}
+
+.dropdown-menu {
+    white-space: nowrap;
+    width: max-content;
+}
+
+
+#parameters .dropdown-item {
+    display: flex;
+    gap: 10px;
+}
+
+#parameters .dropdown-item:active,#parameters .dropdown-item:hover{
+    background-color: white;
+    color: black;
 }
 
