@@ -78,8 +78,10 @@ function drawEternal(ctx, width, height, cellSize, angle, radius, mouseEffect) {
     ctx.beginPath()
     for(let i = 0; i < width; i+= cellSize) {
         for(let j = 0; j < height; j += cellSize) {
+            let compressionX = (mouseEffect*mouseX+1000)/(mouseEffect*mouseY+1000)
+            let compressionY = (mouseEffect*mouseY+1000)/(mouseEffect*mouseX+1000)
             ctx.moveTo(i, j)
-            ctx.lineTo(i+radius*Math.cos(i/3000*angle),j+radius*Math.sin(j/2000*angle))
+            ctx.lineTo(i+radius*Math.cos(i/(compressionX*2000)*angle),j+radius*Math.sin(j/(compressionY*2000)*angle))
         }
     }
     ctx.stroke()

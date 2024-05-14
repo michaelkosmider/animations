@@ -57,7 +57,7 @@ class Effect {
 
     animate() {
         this.#setStyle()
-        this.#animateFrame(0)
+        this.#animateFrame(this.#lastTime)
     }
 
     adjustWindowSize(width, height) {
