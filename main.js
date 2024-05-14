@@ -8,7 +8,7 @@ let mouseX = 0
 let mouseY = 0
 
 window.onload = function() {
-    //preparing the canvas
+    // preparing the canvas
     canvas = document.querySelector("#main-canvas")
     canvas.width=window.innerWidth
     canvas.height=window.innerHeight
@@ -18,8 +18,10 @@ window.onload = function() {
     effects = new Map()    
     effects.set("Dots", new Effect(ctx, canvas.width, canvas.height, 30, 10, 1, 1, drawDots))
     effects.set("Lines", new Effect(ctx, canvas.width, canvas.height, 30, 100, 1, 5, drawLines))
-    effects.set("Spirals", new Effect(ctx, canvas.width, canvas.height, 30, 50, 1, 5, drawSpirals))
+    effects.set("Spirals", new Effect(ctx, canvas.width, canvas.height, 15, 50, 1, 5, drawSpirals))
     effects.set("Circles", new Effect(ctx, canvas.width, canvas.height, 30, 40, 1, 1, drawCircles))
+    effects.set("Magnet", new Effect(ctx, canvas.width, canvas.height, 15, 80, 1, 3, drawMagnet))
+    effects.set("Eternal", new Effect(ctx, canvas.width, canvas.height, 15, 80, 1, 1, drawEternal))
 
     // parameter buttons
     let temp = document.querySelectorAll(".form-range")
@@ -45,7 +47,10 @@ window.onload = function() {
         })
         parameters.set(temp[i].dataset.parameter, temp[i])
     }
-
+    let colorPicker = document.querySelector("#color-picker")
+    colorPicker.addEventListener("input", function(event) {
+        canvas.style.backgroundColor = event.target.value;
+    })
     // animation buttons
     let animationDropDown = document.querySelector("#animations .btn")
     let animations = document.querySelectorAll("#animations .dropdown-item")
@@ -71,7 +76,6 @@ window.onload = function() {
 }
 // mouse and touch handlers
 window.addEventListener("mousemove", function(event) {
-    console.log("mousemove happened")
     mouseX = event.pageX
     mouseY = event.pageY
 })
@@ -89,5 +93,3 @@ window.onresize = function() {
     effect.adjustWindowSize(canvas.width, canvas.height)
     effect.animate()
 }
-
-
