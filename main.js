@@ -21,7 +21,7 @@ window.onload = function() {
     effects.set("Spirals", new Effect(ctx, canvas.width, canvas.height, 15, 50, 1, 5, drawSpirals))
     effects.set("Circles", new Effect(ctx, canvas.width, canvas.height, 30, 40, 1, 1, drawCircles))
     effects.set("Magnet", new Effect(ctx, canvas.width, canvas.height, 15, 80, 1, 3, drawMagnet))
-    effects.set("Eternal", new Effect(ctx, canvas.width, canvas.height, 15, 80, 1, 1, drawEternal))
+    effects.set("Eternal", new Effect(ctx, canvas.width, canvas.height, 15, 80, 1, 0, drawEternal))
 
     // parameter buttons
     let temp = document.querySelectorAll(".form-range")
